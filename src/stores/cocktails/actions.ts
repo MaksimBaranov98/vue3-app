@@ -1,5 +1,5 @@
-import { Cocktails } from "@/stores/cocktails/state";
 import axios from "axios";
+import { Cocktails } from "@/stores/cocktails/state";
 import type { CocktailsStore } from "@/stores/cocktails";
 
 type Actions = {
@@ -8,7 +8,7 @@ type Actions = {
 
 export const actions: Actions = {
   async fetchCocktailData(cocktail: Cocktails = Cocktails.Margarita) {
-    if (this[cocktail]) return;
+    if (this[cocktail].length) return;
 
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktail}`;
 
@@ -16,6 +16,6 @@ export const actions: Actions = {
 
     if (res.status !== 200) return;
 
-    this[cocktail] = res.data;
+    this[cocktail] = res.data.drinks;
   },
 };

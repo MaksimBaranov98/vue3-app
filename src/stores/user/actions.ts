@@ -3,7 +3,7 @@ import { Cocktails } from "@/stores/cocktails/state";
 import type { UserStore } from "@/stores/user";
 
 type Actions = {
-  setActivePage(this: UserStore, cocktail?: Cocktails): void;
+  setActivePage(this: UserStore, cocktail?: Cocktails, push?: boolean): void;
   clearActivePage(this: UserStore): void;
 };
 

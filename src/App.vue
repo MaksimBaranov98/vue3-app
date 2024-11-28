@@ -1,8 +1,10 @@
 <template>
   <div class="app">
-    <Menu />
+    <div class="content">
+      <Menu />
 
-    <router-view />
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -20,7 +22,16 @@ body {
 }
 
 .app {
-  display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  background-color: rgb(231, 213, 208);
+
+  .content {
+    display: flex;
+    margin: auto;
+    min-height: 100vh;
+    min-width: 360px;
+    max-width: 1024px;
+    background-color: rgb(208, 180, 172);
+  }
 }
 </style>

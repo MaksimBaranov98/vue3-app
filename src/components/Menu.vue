@@ -13,8 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Components } from "@/router/routes";
-import { onMounted } from "vue";
 import { type Cocktails, cocktailsArray as menuList } from "@/stores/cocktails/state";
 import { useUserStore } from "@/stores/user/index";
 
@@ -27,22 +25,16 @@ const getClasses = (menuItem: Cocktails) => [
   },
 ];
 
-const openCocktailPage = (cocktail: Cocktails) => {
-  console.log(222);
-
-  userStore.setActivePage(cocktail);
-};
+const openCocktailPage = (cocktail: Cocktails) => userStore.setActivePage(cocktail);
 </script>
 
 <style lang="scss" scoped>
 .menu {
-  width: fit-content;
-  min-width: 300px;
-  max-width: 500px;
-  background-color: #b1a5a5;
+  background-color: #ba9f9f;
+  min-width: 120px;
+  flex: 0 1 224px;
 
   .menu-item {
-    flex: 1 1 30px;
     text-align: left;
     color: #504242;
     padding: 20px 0px 20px 15px;
@@ -51,12 +43,12 @@ const openCocktailPage = (cocktail: Cocktails) => {
     cursor: pointer;
 
     &:hover {
-      background-color: #999292;
+      background-color: $active-menu-item;
     }
   }
 
   .menu-item-active {
-    background-color: #999292;
+    background-color: $active-menu-item;
   }
 }
 </style>

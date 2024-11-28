@@ -1,11 +1,12 @@
-import type { State } from "./state";
+import type { Cocktails, State } from "./state";
+import type { GetCocktailInfo } from "./types";
 
 type Getters = {
-  nftsByActiveNetworks(state: State): [];
+  getCocktailCompositionList(state: State): GetCocktailInfo;
 };
 
 export const getters: Getters = {
-  nftsByActiveNetworks(state) {
-    return [];
+  getCocktailCompositionList: (state) => (cocktailName: Cocktails) => {
+    return JSON.parse(JSON.stringify(state[cocktailName]));
   },
 };
